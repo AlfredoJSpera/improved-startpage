@@ -7,8 +7,8 @@ interface props {
 
 function CategoriesCard({ palette }: props) {
 	let style: CSSProperties = {
-		backgroundColor: palette.componentColors.categoriesCardBackground,
-		color: palette.componentColors.categoryText,
+		backgroundColor: palette.categoriesCardBackground,
+		color: palette.categoryText,
 		width: "100px",
 	};
 

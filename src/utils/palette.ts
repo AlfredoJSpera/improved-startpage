@@ -1,77 +1,100 @@
 export type HEX = `#${string}`;
 
 export interface Palette {
-	name: string;
-	componentColors: {
-		shadow: HEX;
+	shadow: HEX;
 
-		pageBackground: HEX;
+	pageBackground: HEX;
 
-		categoriesCardBackground: HEX;
+	categoriesCardBackground: HEX;
 
-		buttonBackground: HEX;
-		buttonHoverBackground: HEX;
+	buttonBackground: HEX;
+	buttonHoverBackground: HEX;
 
-		buttonText: HEX;
-		buttonHoverText: HEX;
+	buttonText: HEX;
+	buttonHoverText: HEX;
 
-		categoryText: HEX;
-		categoryDivider: HEX;
+	categoryText: HEX;
+	categoryDivider: HEX;
 
-		statusBarBackground: HEX;
+	statusBarBackground: HEX;
 
-		quickLinkHoverBackground: HEX;
+	quickLinkHoverBackground: HEX;
 
-		tabIndicatorHoverBackground: HEX;
-		tabIndicatorText: HEX;
-		tabIndicatorHoverText: HEX;
+	tabIndicatorHoverBackground: HEX;
+	tabIndicatorText: HEX;
+	tabIndicatorHoverText: HEX;
 
-		clockHoverBackground: HEX;
-		clockText: HEX;
-		clockHoverText: HEX;
-		clockIcon: HEX;
-		clockHoverIcon: HEX;
+	clockHoverBackground: HEX;
+	clockText: HEX;
+	clockHoverText: HEX;
+	clockIcon: HEX;
+	clockHoverIcon: HEX;
 
-		weatherHoverBackground: HEX;
-		weatherText: HEX;
-		weatherHoverText: HEX;
-		weatherDegreesText: HEX;
-		weatherDegreesHoverText: HEX;
-		weatherIcon: HEX;
-		weatherHoverIcon: HEX;
-	};
+	weatherHoverBackground: HEX;
+	weatherText: HEX;
+	weatherHoverText: HEX;
+	weatherDegreesText: HEX;
+	weatherDegreesHoverText: HEX;
+	weatherIcon: HEX;
+	weatherHoverIcon: HEX;
 }
 
 export const defaultMocha: Palette = {
-	name: "Catppuccin Mocha",
-	componentColors: {
-		shadow: "#000000",
-		pageBackground: "#1e1e2e",
-		categoriesCardBackground: "#313244",
-		buttonBackground: "#45475a",
-		buttonHoverBackground: "#45475a",
-		buttonText: "#cdd6f4",
-		buttonHoverText: "#cdd6f4",
-		categoryText: "#a6adc8",
-		categoryDivider: "#cdd6f4",
-		statusBarBackground: "#313244",
-		quickLinkHoverBackground: "#6c7086",
-		tabIndicatorHoverBackground: "#6c7086",
-		tabIndicatorText: "#cdd6f4",
-		tabIndicatorHoverText: "#cdd6f4",
-		clockHoverBackground: "#6c7086",
-		clockText: "#cdd6f4",
-		clockHoverText: "#cdd6f4",
-		clockIcon: "#f38ba8",
-		clockHoverIcon: "#f38ba8",
-		weatherHoverBackground: "#6c7086",
-		weatherText: "#cdd6f4",
-		weatherHoverText: "#cdd6f4",
-		weatherDegreesText: "#cdd6f4",
-		weatherDegreesHoverText: "#cdd6f4",
-		weatherIcon: "#89b4fa",
-		weatherHoverIcon: "#89b4fa",
-	},
+	shadow: "#000000",
+	pageBackground: "#1e1e2e",
+	categoriesCardBackground: "#313244",
+	buttonBackground: "#45475a",
+	buttonHoverBackground: "#45475a",
+	buttonText: "#cdd6f4",
+	buttonHoverText: "#cdd6f4",
+	categoryText: "#a6adc8",
+	categoryDivider: "#cdd6f4",
+	statusBarBackground: "#313244",
+	quickLinkHoverBackground: "#6c7086",
+	tabIndicatorHoverBackground: "#6c7086",
+	tabIndicatorText: "#cdd6f4",
+	tabIndicatorHoverText: "#cdd6f4",
+	clockHoverBackground: "#6c7086",
+	clockText: "#cdd6f4",
+	clockHoverText: "#cdd6f4",
+	clockIcon: "#f38ba8",
+	clockHoverIcon: "#f38ba8",
+	weatherHoverBackground: "#6c7086",
+	weatherText: "#cdd6f4",
+	weatherHoverText: "#cdd6f4",
+	weatherDegreesText: "#cdd6f4",
+	weatherDegreesHoverText: "#cdd6f4",
+	weatherIcon: "#89b4fa",
+	weatherHoverIcon: "#89b4fa",
+};
+
+export const defaultLatte: Palette = {
+	shadow: "#000000",
+	pageBackground: "#f38ba8",
+	categoriesCardBackground: "#8839ef",
+	buttonBackground: "#45475a",
+	buttonHoverBackground: "#45475a",
+	buttonText: "#cdd6f4",
+	buttonHoverText: "#cdd6f4",
+	categoryText: "#a6adc8",
+	categoryDivider: "#cdd6f4",
+	statusBarBackground: "#313244",
+	quickLinkHoverBackground: "#6c7086",
+	tabIndicatorHoverBackground: "#6c7086",
+	tabIndicatorText: "#cdd6f4",
+	tabIndicatorHoverText: "#cdd6f4",
+	clockHoverBackground: "#6c7086",
+	clockText: "#cdd6f4",
+	clockHoverText: "#cdd6f4",
+	clockIcon: "#f38ba8",
+	clockHoverIcon: "#f38ba8",
+	weatherHoverBackground: "#6c7086",
+	weatherText: "#cdd6f4",
+	weatherHoverText: "#cdd6f4",
+	weatherDegreesText: "#cdd6f4",
+	weatherDegreesHoverText: "#cdd6f4",
+	weatherIcon: "#89b4fa",
+	weatherHoverIcon: "#89b4fa",
 };
 
 // export const latte: Palette = {
