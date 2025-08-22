@@ -7,7 +7,7 @@ export interface Palette {
 
 		pageBackground: HEX;
 
-		categoryCardBackground: HEX;
+		categoriesCardBackground: HEX;
 
 		buttonBackground: HEX;
 		buttonHoverBackground: HEX;
@@ -42,12 +42,12 @@ export interface Palette {
 	};
 }
 
-export const mocha: Palette = {
+export const defaultMocha: Palette = {
 	name: "Catppuccin Mocha",
 	componentColors: {
 		shadow: "#000000",
 		pageBackground: "#1e1e2e",
-		categoryCardBackground: "#313244",
+		categoriesCardBackground: "#313244",
 		buttonBackground: "#45475a",
 		buttonHoverBackground: "#45475a",
 		buttonText: "#cdd6f4",
