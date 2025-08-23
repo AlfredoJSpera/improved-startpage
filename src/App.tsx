@@ -1,6 +1,6 @@
 import "./css/App.css";
 import React, { useEffect } from "react";
-import CategoriesContainer from "./components/CategoriesContainer";
+import Category from "./components/Category";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { Palette } from "./utils/palette";
 import {
@@ -42,8 +42,8 @@ function App() {
 	}, [currentPalette]);
 
 	return (
-		<div className="app">
-			<CategoriesContainer />
+		<div className="category-container">
+			<Category accent="#2396bd" />
 		</div>
 	);
 }
