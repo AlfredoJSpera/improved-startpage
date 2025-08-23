@@ -1,9 +1,7 @@
 import "./css/App.css";
 import React, { useEffect } from "react";
-import CategoriesCard from "./components/CategoriesCard";
+import CategoriesContainer from "./components/CategoriesContainer";
 import useLocalStorage from "./hooks/useLocalStorage";
-import CurrentPaletteDisplay from "./components/CurrentPaletteDisplay";
-import CurrentPaletteSelect from "./components/CurrentPaletteSelect";
 import { Palette } from "./utils/palette";
 import {
 	LOCALSTORAGE_STORED_PALETTES_KEY,
@@ -45,13 +43,7 @@ function App() {
 
 	return (
 		<div className="app">
-			<CategoriesCard />
-			<CurrentPaletteSelect
-				currentPaletteKey={currentPaletteName}
-				storedPalettes={storedPalettes}
-				setCurrentPaletteKey={setCurrentPaletteName}
-			/>
-			<CurrentPaletteDisplay palette={currentPalette} />
+			<CategoriesContainer />
 		</div>
 	);
 }

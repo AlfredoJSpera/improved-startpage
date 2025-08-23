@@ -29,15 +29,17 @@
 }
 
 body {
-	margin: 0;
 	background-color: var(--page-background);
+
+	margin: 0;
 }
 
 .app {
 	margin: 8px;
+	display: flex;
 }
 
-.categories-card {
+.categories-container {
 	background-color: var(--categories-card-background);
 	color: var(--category-text);
 }
