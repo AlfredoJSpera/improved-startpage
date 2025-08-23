@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.css";
 import React, { useEffect } from "react";
 import CategoriesCard from "./components/CategoriesCard";
 import useLocalStorage from "./hooks/useLocalStorage";
