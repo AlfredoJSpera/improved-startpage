@@ -6,22 +6,28 @@ import CurrentPaletteDisplay from "./components/CurrentPaletteDisplay";
 import CurrentPaletteSelect from "./components/CurrentPaletteSelect";
 import { Palette } from "./utils/palette";
 import {
-	STORED_PALETTES_KEY,
-	PALETTE_KEY,
+	LOCALSTORAGE_STORED_PALETTES_KEY,
+	LOCALSTORAGE_CURRENT_PALETTE_KEY,
 	DEFAULT_PALETTES,
 } from "./utils/constants";
 import { toKebabCase } from "./utils/helper";
 
 function App() {
 	const [storedPalettes, setStoredPalettes] = useLocalStorage(
-		STORED_PALETTES_KEY,
+		LOCALSTORAGE_STORED_PALETTES_KEY,
 		DEFAULT_PALETTES
 	);
-	const [currentPaletteKey, setCurrentPaletteKey] = useLocalStorage<string>(
-		PALETTE_KEY,
+
+	if (Object.keys(storedPalettes).length === 0) {
+		console.warn("Empty palettes object, setting defaults.");
+		setStoredPalettes(DEFAULT_PALETTES);
+	}
+
+	const [currentPaletteName, setCurrentPaletteName] = useLocalStorage<string>(
+		LOCALSTORAGE_CURRENT_PALETTE_KEY,
 		Object.keys(DEFAULT_PALETTES)[0]
 	);
-	const currentPalette: Palette = storedPalettes[currentPaletteKey];
+	const currentPalette: Palette = storedPalettes[currentPaletteName];
 
 	useEffect(() => {
 		// Iterate over each key-value pair in the currentPalette
@@ -41,9 +47,9 @@ function App() {
 		<div className="app">
 			<CategoriesCard />
 			<CurrentPaletteSelect
-				currentPaletteKey={currentPaletteKey}
+				currentPaletteKey={currentPaletteName}
 				storedPalettes={storedPalettes}
-				setCurrentPaletteKey={setCurrentPaletteKey}
+				setCurrentPaletteKey={setCurrentPaletteName}
 			/>
 			<CurrentPaletteDisplay palette={currentPalette} />
 		</div>

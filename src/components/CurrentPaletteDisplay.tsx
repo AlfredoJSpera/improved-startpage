@@ -1,13 +1,19 @@
-import { CSSProperties } from "react";
 import { Palette } from "../utils/palette";
 import ColoredCircle from "./ColoredCircle";
 
 interface props {
+	/** The palette object containing color variables to be displayed. */
 	palette: Palette;
 }
 
+/**
+ * A table that displays all the color variables and their values from a given palette object.
+ *
+ * @param palette The palette object containing color variables to be displayed.
+ */
 function CurrentPaletteDisplay({ palette }: props) {
-	const paletteKeys = Object.keys(palette) as (keyof Palette)[];
+	/** Holds all the properties (variable names) from the palette. */
+	const paletteProperties = Object.keys(palette) as (keyof Palette)[];
 
 	return (
 		<table className="current-palette-display">
@@ -18,12 +24,12 @@ function CurrentPaletteDisplay({ palette }: props) {
 				</tr>
 			</thead>
 			<tbody>
-				{paletteKeys.map((key) => (
-					<tr key={key}>
-						<td>{key}</td>
+				{paletteProperties.map((property) => (
+					<tr key={property}>
+						<td>{property}</td>
 						<td>
-							{palette[key]}
-							<ColoredCircle color={palette[key]} />
+							{palette[property]}
+							<ColoredCircle color={palette[property]} />
 						</td>
 					</tr>
 				))}

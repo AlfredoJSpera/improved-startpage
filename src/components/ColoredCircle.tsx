@@ -1,24 +1,32 @@
 //* Source: https://stackoverflow.com/a/60965885
 
-import React, { useState, CSSProperties } from "react";
+import { useState, CSSProperties } from "react";
 import { HEX } from "../utils/palette";
 import { SketchPicker } from "react-color";
 
 interface props {
+	/** The HEX color value to be displayed in the circle. */
 	color: HEX;
 }
 
+/**
+ * Renders a colored circle that, when clicked, displays a color picker.
+ * @param color The HEX color value to be displayed in the circle.
+ */
 function ColoredCircle({ color }: props) {
-	const [displayColorPicker, setDisplayColorPicker] = useState(false);
+	const [isColorPickerVisible, setIsColorPickerVisible] = useState(false);
 
+	/** Toggles the visibility of the color picker when clicking the colored circle. */
 	const handleClick = () => {
-		setDisplayColorPicker(!displayColorPicker);
+		setIsColorPickerVisible(!isColorPickerVisible);
 	};
 
+	/** Hides the color picker when clicking the transparent overlay. */
 	const handleClose = () => {
-		setDisplayColorPicker(false);
+		setIsColorPickerVisible(false);
 	};
 
+	/** The color of the circle. */
 	const style: CSSProperties = {
 		backgroundColor: color,
 	};
@@ -30,7 +38,7 @@ function ColoredCircle({ color }: props) {
 				style={style}
 				onClick={handleClick}
 			/>
-			{displayColorPicker && (
+			{isColorPickerVisible && (
 				<div style={{ position: "absolute", zIndex: 2 }}>
 					<div
 						style={{
