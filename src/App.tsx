@@ -1,52 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import CategoriesCard from "./components/CategoriesCard";
 import { CSSProperties } from "react";
 import { defaultMocha, defaultLatte, Palette } from "./utils/palette";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 const PALETTE_KEY = "currentPalette";
-const ALL_PALETTES_KEY = "allPalettes";
-
-function getAllPalettesFromStorage() {
-	const stored = localStorage.getItem(ALL_PALETTES_KEY);
-	const defaultObjects = {
-		"Catppuccin Mocha": defaultMocha,
-		"Catppuccin Latte": defaultLatte,
-	};
-
-	if (stored) {
-		try {
-			return JSON.parse(stored);
-		} catch {
-			return defaultObjects;
-		}
-	}
-	return defaultObjects;
-}
-
-function getCurrentPaletteKeyFromStorage() {
-	const stored = localStorage.getItem(PALETTE_KEY);
-
-	if (stored) {
-		return stored;
-	}
-	return "Catppuccin Mocha";
-}
+const STORED_PALETTES_KEY = "allPalettes";
 
 function App() {
-	const [allPalettes, setAllPalettes] = useState(getAllPalettesFromStorage());
-	const [currentPaletteKey, setCurrentPaletteKey] = useState(
-		getCurrentPaletteKeyFromStorage()
+	const [storedPalettes, setStoredPalettes] = useLocalStorage<
+		Record<string, Palette>
+	>(STORED_PALETTES_KEY, {
+		"Catppuccin Mocha": defaultMocha,
+		"Catppuccin Latte": defaultLatte,
+	});
+	const [currentPaletteKey, setCurrentPaletteKey] = useLocalStorage<string>(
+		PALETTE_KEY,
+		"Catppuccin Mocha"
 	);
 
-	const currentPalette: Palette =
-		allPalettes[currentPaletteKey] || defaultMocha;
+	const currentPalette: Palette = storedPalettes[currentPaletteKey];
 
 	useEffect(() => {
 		document.body.style.backgroundColor = currentPalette.pageBackground;
-		localStorage.setItem(PALETTE_KEY, currentPaletteKey);
-		localStorage.setItem(ALL_PALETTES_KEY, JSON.stringify(allPalettes));
-	}, [currentPalette, currentPaletteKey, allPalettes]);
+	}, [currentPalette, currentPaletteKey, storedPalettes]);
 
 	let style: CSSProperties = {
 		backgroundColor: currentPalette.pageBackground,
@@ -60,7 +38,7 @@ function App() {
 				value={currentPaletteKey}
 				onChange={(e) => setCurrentPaletteKey(e.target.value)}
 			>
-				{Object.keys(allPalettes).map((key) => (
+				{Object.keys(storedPalettes).map((key) => (
 					<option key={key} value={key}>
 						Set {key}
 					</option>
