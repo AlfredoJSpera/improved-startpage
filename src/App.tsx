@@ -1,49 +1,45 @@
-import React, { useEffect } from "react";
 import "./App.css";
-import CategoriesCard from "./components/CategoriesCard";
+import React, { useEffect } from "react";
 import { CSSProperties } from "react";
-import { defaultMocha, defaultLatte, Palette } from "./utils/palette";
+import CategoriesCard from "./components/CategoriesCard";
 import useLocalStorage from "./hooks/useLocalStorage";
-
-const PALETTE_KEY = "currentPalette";
-const STORED_PALETTES_KEY = "allPalettes";
+import CurrentPaletteDisplay from "./components/CurrentPaletteDisplay";
+import CurrentPaletteSelect from "./components/CurrentPaletteSelect";
+import { Palette } from "./utils/palette";
+import {
+	STORED_PALETTES_KEY,
+	PALETTE_KEY,
+	DEFAULT_PALETTES,
+} from "./utils/constants";
 
 function App() {
-	const [storedPalettes, setStoredPalettes] = useLocalStorage<
-		Record<string, Palette>
-	>(STORED_PALETTES_KEY, {
-		"Catppuccin Mocha": defaultMocha,
-		"Catppuccin Latte": defaultLatte,
-	});
+	const [storedPalettes, setStoredPalettes] = useLocalStorage(
+		STORED_PALETTES_KEY,
+		DEFAULT_PALETTES
+	);
 	const [currentPaletteKey, setCurrentPaletteKey] = useLocalStorage<string>(
 		PALETTE_KEY,
-		"Catppuccin Mocha"
+		Object.keys(DEFAULT_PALETTES)[0]
 	);
-
 	const currentPalette: Palette = storedPalettes[currentPaletteKey];
 
 	useEffect(() => {
 		document.body.style.backgroundColor = currentPalette.pageBackground;
-	}, [currentPalette, currentPaletteKey, storedPalettes]);
+	}, [currentPalette]);
 
-	let style: CSSProperties = {
+	const style: CSSProperties = {
 		backgroundColor: currentPalette.pageBackground,
 	};
 
 	return (
 		<div style={style}>
 			<CategoriesCard palette={currentPalette} />
-			<p>Current palette: {currentPaletteKey}</p>
-			<select
-				value={currentPaletteKey}
-				onChange={(e) => setCurrentPaletteKey(e.target.value)}
-			>
-				{Object.keys(storedPalettes).map((key) => (
-					<option key={key} value={key}>
-						Set {key}
-					</option>
-				))}
-			</select>
+			<CurrentPaletteSelect
+				currentPaletteKey={currentPaletteKey}
+				storedPalettes={storedPalettes}
+				setCurrentPaletteKey={setCurrentPaletteKey}
+			/>
+			<CurrentPaletteDisplay palette={currentPalette} />
 		</div>
 	);
 }

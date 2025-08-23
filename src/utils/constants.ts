@@ -1,0 +1,9 @@
+import { defaultMocha, defaultLatte, Palette } from "./palette";
+
+export const PALETTE_KEY = "currentPalette";
+export const STORED_PALETTES_KEY = "allPalettes";
+
+export const DEFAULT_PALETTES: Record<string, Palette> = {
+	"Catppuccin Mocha": defaultMocha,
+	"Catppuccin Latte": defaultLatte,
+};

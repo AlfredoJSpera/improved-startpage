@@ -74,7 +74,7 @@ export const defaultLatte: Palette = {
 	categoriesCardBackground: "#8839ef",
 	buttonBackground: "#45475a",
 	buttonHoverBackground: "#45475a",
-	buttonText: "#cdd6f4",
+	buttonText: "#292b33ff",
 	buttonHoverText: "#cdd6f4",
 	categoryText: "#a6adc8",
 	categoryDivider: "#cdd6f4",

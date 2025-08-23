@@ -10,7 +10,7 @@ function useLocalStorage<T>(
 			const storedValue = localStorage.getItem(key);
 			return storedValue ? JSON.parse(storedValue) : initialValue;
 		} catch (error) {
-			console.error(error);
+			console.error("Failed to parse item from localStorage:", error);
 			return initialValue;
 		}
 	});
