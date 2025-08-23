@@ -1,3 +1,51 @@
+:root {
+	/* Default Mocha Palette */
+	--shadow: #000000;
+	--page-background: #1e1e2e;
+	--categories-card-background: #313244;
+	--button-background: #45475a;
+	--button-hover-background: #45475a;
+	--button-text: #cdd6f4;
+	--button-hover-text: #cdd6f4;
+	--category-text: #a6adc8;
+	--category-divider: #cdd6f4;
+	--status-bar-background: #313244;
+	--quick-link-hover-background: #6c7086;
+	--tab-indicator-hover-background: #6c7086;
+	--tab-indicator-text: #cdd6f4;
+	--tab-indicator-hover-text: #cdd6f4;
+	--clock-hover-background: #6c7086;
+	--clock-text: #cdd6f4;
+	--clock-hover-text: #cdd6f4;
+	--clock-icon: #f38ba8;
+	--clock-hover-icon: #f38ba8;
+	--weather-hover-background: #6c7086;
+	--weather-text: #cdd6f4;
+	--weather-hover-text: #cdd6f4;
+	--weather-degrees-text: #cdd6f4;
+	--weather-degrees-hover-text: #cdd6f4;
+	--weather-icon: #89b4fa;
+	--weather-hover-icon: #89b4fa;
+}
+
+body {
+	margin: 0;
+	background-color: var(--page-background);
+}
+
+.app {
+	margin: 8px;
+}
+
+.categories-card {
+	background-color: var(--categories-card-background);
+	color: var(--category-text);
+}
+
+.current-palette-display {
+	color: var(--button-text);
+}
+
 .colored-circle {
 	display: inline-block;
 	margin-left: 5px;

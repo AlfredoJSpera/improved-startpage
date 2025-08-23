@@ -9,12 +9,8 @@ interface props {
 function CurrentPaletteDisplay({ palette }: props) {
 	const paletteKeys = Object.keys(palette) as (keyof Palette)[];
 
-	const style: CSSProperties = {
-		color: palette.buttonText,
-	};
-
 	return (
-		<table style={style}>
+		<table className="current-palette-display">
 			<thead>
 				<tr>
 					<th>Variable Name</th>

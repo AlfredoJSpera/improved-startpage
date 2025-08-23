@@ -1,5 +1,4 @@
 //* Source: https://stackoverflow.com/a/60965885
-//? CSS Class: App.css
 
 import React, { useState, CSSProperties } from "react";
 import { HEX } from "../utils/palette";

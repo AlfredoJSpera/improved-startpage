@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useEffect } from "react";
-import { CSSProperties } from "react";
 import CategoriesCard from "./components/CategoriesCard";
 import useLocalStorage from "./hooks/useLocalStorage";
 import CurrentPaletteDisplay from "./components/CurrentPaletteDisplay";
@@ -11,6 +10,7 @@ import {
 	PALETTE_KEY,
 	DEFAULT_PALETTES,
 } from "./utils/constants";
+import { toKebabCase } from "./utils/helper";
 
 function App() {
 	const [storedPalettes, setStoredPalettes] = useLocalStorage(
@@ -24,16 +24,22 @@ function App() {
 	const currentPalette: Palette = storedPalettes[currentPaletteKey];
 
 	useEffect(() => {
-		document.body.style.backgroundColor = currentPalette.pageBackground;
+		// Iterate over each key-value pair in the currentPalette
+		(Object.keys(currentPalette) as (keyof Palette)[]).forEach((key) => {
+			// Convert to CSS variable naming
+			const cssVarName = `--${toKebabCase(key)}`;
+
+			// Set the CSS variable on the document's root element
+			document.documentElement.style.setProperty(
+				cssVarName,
+				currentPalette[key]
+			);
+		});
 	}, [currentPalette]);
 
-	const style: CSSProperties = {
-		backgroundColor: currentPalette.pageBackground,
-	};
-
 	return (
-		<div style={style}>
-			<CategoriesCard palette={currentPalette} />
+		<div className="app">
+			<CategoriesCard />
 			<CurrentPaletteSelect
 				currentPaletteKey={currentPaletteKey}
 				storedPalettes={storedPalettes}
