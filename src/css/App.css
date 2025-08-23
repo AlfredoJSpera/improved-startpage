@@ -29,24 +29,40 @@
 }
 
 body {
+	margin: 0;
 	background-color: var(--page-background);
+}
+
+.app {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	margin: 0;
 }
 
-.category-container {
-	background-color: var(--categories-card-background);
-	color: var(--category-text);
-
-	width: 1200px;
-	height: 450px;
-	display: flex;
+.active-category-mask {
+	max-width: 1200px;
 	border-radius: 5px 0 0 5px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+}
+
+.categories-track {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+}
+
+.category-slide {
+	width: 100%;
+	flex-shrink: 0;
+}
+
+.category {
+	background-color: var(--categories-card-background);
+	display: flex;
+	width: 1200px;
+	height: 450px;
 	overflow: hidden;
 }
 

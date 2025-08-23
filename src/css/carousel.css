@@ -1,0 +1,64 @@
+.dots-container {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 1rem;
+	display: flex;
+	justify-content: center;
+}
+
+.dot-button {
+	width: 0.75rem;
+	height: 0.75rem;
+	border-radius: 9999px;
+	transition: all 0.3s ease-in-out;
+	background-color: #d1d5db;
+}
+
+.dot-button:hover {
+	background-color: #9ca3af;
+}
+
+.dot-button.active {
+	background-color: #4f46e5;
+	transform: scale(1.25);
+}
+
+.nav-button {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 0.5rem;
+	border-radius: 9999px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	color: #374151;
+	transition: all 0.3s ease-in-out;
+	border: none;
+	cursor: pointer;
+	z-index: 10;
+}
+
+.nav-button:hover {
+	background-color: rgba(255, 255, 255, 1);
+	color: #4f46e5;
+}
+
+.nav-button:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
+}
+
+.nav-button.left {
+	left: 1rem;
+}
+
+.nav-button.right {
+	right: 1rem;
+}
+
+.nav-button svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}

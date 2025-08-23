@@ -1,29 +1,29 @@
 import { CSSProperties } from "react";
-import blueGIF from "./blue.gif";
 import { HEX } from "../utils/palette";
 
 interface props {
 	accent: HEX;
+	image: string;
+	name: string;
 }
 
 /**
  * The main component of the page.
  */
-function Category({ accent }: props) {
+function Category({ accent, image, name }: props) {
 	const style: CSSProperties = {
-		boxShadow: `inset -1.5px 0 ${accent}`,
+		boxShadow: `inset -2px 0 ${accent}`,
 	};
 
 	return (
-		<>
+		<div className="category">
 			<div className="category-left-section">
-				<img src={blueGIF} alt=""></img>
+				<img src={image} alt=""></img>
 			</div>
 			<div className="category-right-section" style={style}>
-				<p>Hello</p>
-				<p>Text</p>
+				<h2>{name}</h2>
 			</div>
-		</>
+		</div>
 	);
 }
 

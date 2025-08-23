@@ -1,16 +1,19 @@
 import "./css/App.css";
-import React, { useEffect } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import Category from "./components/Category";
 import useLocalStorage from "./hooks/useLocalStorage";
-import { Palette } from "./utils/palette";
+import { HEX, Palette } from "./utils/palette";
 import {
 	LOCALSTORAGE_STORED_PALETTES_KEY,
 	LOCALSTORAGE_CURRENT_PALETTE_KEY,
 	DEFAULT_PALETTES,
 } from "./utils/constants";
 import { toKebabCase } from "./utils/helper";
+import CategoryCarousel from "./components/CategoryCarousel";
+import blueGIF from "./images/blue.gif";
 
 function App() {
+	//MARK: PALETTE HANDLING
 	const [storedPalettes, setStoredPalettes] = useLocalStorage(
 		LOCALSTORAGE_STORED_PALETTES_KEY,
 		DEFAULT_PALETTES
@@ -41,9 +44,23 @@ function App() {
 		});
 	}, [currentPalette]);
 
+	//MARK: CATEGORY HANDLING
+
+	const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
+	const categories = [
+		{ accent: "#2396bd" as HEX, image: blueGIF, name: "Cat1" },
+		{ accent: "#a940a6" as HEX, image: blueGIF, name: "Cat2" },
+		{ accent: "#bd8423" as HEX, image: blueGIF, name: "Cat3" },
+	];
+
+	//MARK: RENDER
 	return (
-		<div className="category-container">
-			<Category accent="#2396bd" />
+		<div className="app">
+			<CategoryCarousel
+				categories={categories}
+				activeCategoryIndex={activeCategoryIndex}
+				setActiveCategoryIndex={setActiveCategoryIndex}
+			/>
 		</div>
 	);
 }
